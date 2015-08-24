@@ -1,0 +1,8 @@
+language: r
+sudo: required
+notifications:
+  email: false
+before_install:
+  - "cd TestCases"
+script:
+  - R --slave -f test_types.r
