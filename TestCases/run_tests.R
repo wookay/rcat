@@ -20,7 +20,7 @@ install.if.necessary <- function(package.name) {
 install.if.necessary("RUnit")
 
 # define a test suite; looks for files named "^.*_test.R" in current directory 
-test.suite <- defineTestSuite("rcat", dirs = getwd(), testFileRegex = "test_.*\\.R" )
+test.suite <- defineTestSuite("rcat", dirs = getwd(), testFileRegex = "^.*_test\\.R" )
 
 # run the tests
 test.result <- runTestSuite(test.suite)

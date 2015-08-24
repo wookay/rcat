@@ -8,6 +8,5 @@ before_install:
 script:
   - R CMD build ${R_BUILD_ARGS} .
   - R CMD check rcat_0.0.1.tar.gz
+  - cat test_types.R
   - ./run_tests.R
-after_failure:
-  - ./travis-tool.sh dump_logs
