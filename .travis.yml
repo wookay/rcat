@@ -3,6 +3,11 @@ sudo: required
 notifications:
   email: false
 before_install:
+  - ./travis-tool.sh bootstrap
   - "cd TestCases"
 script:
-  - R --slave -f test_types.r
+  - R CMD build ${R_BUILD_ARGS} .
+  - R CMD check rcat_0.0.1.tar.gz
+  - ./run_tests.R
+after_failure:
+  - ./travis-tool.sh dump_logs
